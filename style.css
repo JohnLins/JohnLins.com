@@ -88,7 +88,8 @@ nav {
 
 #name {
     float: left;
-    margin: 1vw;
+    margin-left: 1vw;
+    margin-top:.8vw;
 }
 
 .nav_item {
