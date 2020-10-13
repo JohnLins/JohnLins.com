@@ -97,9 +97,16 @@ nav {
     text-decoration: none;
 }
 
+#toggle {
+    display: none;
+}
+
 
 
 @media only screen and (max-width:700px) {
+    * {
+        font-size: 1.5vw;
+    }
     .page {
         font-size: 2rem;
         text-align: center;
@@ -113,16 +120,46 @@ nav {
 
     #name {
         font-size: 3em;
+        z-index: 2;
+        color: gray;
     }
 
     #nav {
-        
+        overflow: hidden;
         margin: 0;
         width: 100%;
         height: 6rem;
     }
 
-    .nav_item {
-        display: none;
-    }
+    
+
+      .nav_item {
+        color: gray;
+        text-align: center;
+      }
+
+      #toggle {
+        display: block;
+        float:right;
+        font-size: 5.5vw;
+        position: fixed; 
+        top: 2vw; 
+        right:2vw; 
+        color: gray;
+        z-index: 2;
+      }
+
+      #mobile_nav_items {
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+
+    background-color: rgba(255, 255, 255, .15);
+    display: block;
+    backdrop-filter: blur(15px);
+
+        height: 1040px;
+        width: 100%;
+        color: white;
+        display: block;
+        margin:0;
+        }
 }
