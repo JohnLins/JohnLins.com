@@ -22,8 +22,9 @@ body {
 .page {
     font-size: 2rem;
     text-align: center;
+    list-style-position: center;
     height: 90%;
-    width: 80%;
+    width: 90%;
     box-shadow: 10px 14px 50px gray;
     margin-top: -100px;
     top: 0;
@@ -35,10 +36,10 @@ body {
     overflow: hidden;
     top: 0;
     width: 100%;
-    margin-top: 80px;
-    margin-left: 10%;
+    margin-top: 4vw;
+    margin-left: 5%;
     
-    width: 80%;
+    width: 90%;
     height: 3rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
 
@@ -96,4 +97,6 @@ nav {
     float: right;
     margin-top: .8vw;
     margin-right: 1vw;
+    color: black;
+    text-decoration: none;
 }
