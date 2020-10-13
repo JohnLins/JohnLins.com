@@ -134,8 +134,7 @@ nav {
     
 
       .nav_item {
-        color: gray;
-        text-align: center;
+        display: none;
       }
 
       #toggle {
@@ -150,16 +149,26 @@ nav {
       }
 
       #mobile_nav_items {
-        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
 
     background-color: rgba(255, 255, 255, .15);
     display: block;
     backdrop-filter: blur(15px);
 
-        height: 1040px;
-        width: 100%;
-        color: white;
+    position: fixed;
+    height: 1040px;
+    width: 100%;
+    color: white;
+    display: block;
+    margin:0;
+    }
+
+        #mobile_nav_items .nav_item {
         display: block;
-        margin:0;
-        }
+        color: black;
+        text-align: center;
+        margin-right:0;
+        font-size: 3vw;
+
+    }
+
 }
