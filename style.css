@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Piazzolla;
+
     font-size: 1vw;
 }
 
@@ -15,7 +16,7 @@ body {
     width: 100%;
     height: 200vw;
 
-    
+
 }
 
 
@@ -37,12 +38,12 @@ body {
     top: 0;
     margin-top: 4vw;
     margin-left: 5%;
-    
+
     width: 90%;
     height: 3rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
 
-    background-color: rgba(255, 255, 255, .15);
+    background-color: rgba(255, 255, 255, .55);
     display: block;
     backdrop-filter: blur(15px);
 }
@@ -58,6 +59,7 @@ li a {
 li:last-child {
     border-right: none;
 }
+
 /*
 nav {
     width: 80%;
@@ -86,7 +88,7 @@ nav {
 #name {
     float: left;
     margin-left: 1vw;
-    margin-top:.8vw;
+    margin-top: .8vw;
 }
 
 .nav_item {
@@ -107,6 +109,7 @@ nav {
     * {
         font-size: 1.5vw;
     }
+
     .page {
         font-size: 2rem;
         text-align: center;
@@ -114,14 +117,15 @@ nav {
         height: 100%;
         width: 100%;
         box-shadow: 10px 14px 50px gray;
-        margin-top: -40px;
+        margin-top:0;
         top: 0;
     }
 
     #name {
         font-size: 3em;
         z-index: 2;
-        color: gray;
+        color: black;
+        margin-left: 15px;
     }
 
     #nav {
@@ -131,44 +135,48 @@ nav {
         height: 6rem;
     }
 
-    
 
-      .nav_item {
+
+    .nav_item {
         display: none;
-      }
-
-      #toggle {
-        display: block;
-        float:right;
-        font-size: 5.5vw;
-        position: fixed; 
-        top: 2vw; 
-        right:2vw; 
-        color: gray;
-        z-index: 2;
-      }
-
-      #mobile_nav_items {
-
-    background-color: rgba(255, 255, 255, .15);
-    display: block;
-    backdrop-filter: blur(15px);
-
-    position: fixed;
-    height: 1040px;
-    width: 100%;
-    color: white;
-    display: block;
-    margin:0;
     }
 
-        #mobile_nav_items .nav_item {
+    #toggle {
         display: block;
+        float: right;
+        font-size: 5.5vw;
+        position: fixed;
+        top: 2vw;
+        right: 2vw;
         color: black;
-        text-align: center;
-        margin-right:0;
-        font-size: 3vw;
+        z-index: 2;
+    }
 
+    #mobile_nav_items {
+
+        background-color: rgba(255, 255, 255, .75);
+        display: block;
+        backdrop-filter: blur(5px);
+
+        position: fixed;
+        height: 1040px;
+        width: 100%;
+        color: white;
+        text-align: center;
+        margin: 0;
+        list-style: none;
+    }
+
+   
+
+    #mobile_nav_items li {
+        display: inline-block;
+        text-align: center;
+    }
+
+    #mobile_nav_items .mobile_nav_item {
+        color: black;
+        text-decoration: none;
     }
 
 }
