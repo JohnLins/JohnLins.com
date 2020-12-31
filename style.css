@@ -76,6 +76,24 @@ nav {
     font-weight: 100;
 }
 
+.resume-btn {
+    border: 0;
+    box-shadow: 0px 0px 15px lightgray;
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+    margin: 5px;
+    background-color: lightgray;
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
+
+.resume-btn:hover {
+    box-shadow: 0px 0px 15px gray;
+    cursor: pointer;
+}
+
 
 
 @media only screen and (max-width:700px) {
