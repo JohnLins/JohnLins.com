@@ -1,4 +1,29 @@
 
+var theme = "l";
+
+function otherTheme(){
+       // window.alert("hi");
+    if(theme == "l"){
+        theme = "d"
+        document.documentElement.style.setProperty('--text-color', "lightblue");
+        document.documentElement.style.setProperty('--back-color', "#1F1E26");
+        document.documentElement.style.setProperty('--nav-color', "rgba(31, 30, 38, .55)");
+    } else {
+        theme = "l"
+        document.documentElement.style.setProperty('--text-color', "black");
+        document.documentElement.style.setProperty('--back-color', "white");
+        document.documentElement.style.setProperty('--nav-color', "rgba(255, 255, 255, .55)");
+        
+        
+    }
+
+ // window.alert(theme);
+}
+
+
+
+
+
         function showResume(){
         document.getElementById("show-resume").innerHTML = `
         <center>
