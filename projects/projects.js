@@ -5,7 +5,7 @@ $.ajax({
     success: function(result) {
         for( i in result ) {
             $("#repo_list").append(
-                `<li><img src=\"` + img(result[i].html_url) + `\"/> 
+              `<li><img src=\"` + `\"/> 
                 
                 <a href='` + result[i].html_url + 
               `' target='_blank'>` +
