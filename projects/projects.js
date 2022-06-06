@@ -1,33 +1,43 @@
+
+function des(name, id){
 $.ajax({
     type: "GET",
-    url: "https://api.github.com/users/JohnLins/repos",
+    url: "https://api.github.com/repos/johnlins/" + name,
+
+
+    
     dataType: "json",
     success: function(result) {
-        for( i in result ) {
-            $("#repo_list").append(
-              `<li><img src=\"` + `\"/> 
-                
-                <a href='` + result[i].html_url + 
-              `' target='_blank'>` +
-                result[i].name + `</a><br/>` + 
-              result[i].description +  
-              `<br/> <p> Created at: ` + 
-              result[i].created_at + 
-              `<br/> Updated at: ` + 
-              result[i].updated_at + 
-              `</p> <b>` + result[i].language + 
-              `</b></li>`
+        
+            $("#"+id).append(
+              result.description 
             );
-            console.log("i: " + i);
-        }
-        console.log(result);
-        $("#repo_count").append("Total Repos: " + result.length);
+        
+        
     }
 });
 
-
-function img(url){
-$.get(url, function(data) {
-return $(data).filter('meta[name="og:image"]').attr("content");
-});
 }
+
+
+function stats(name, id){
+  $.ajax({
+      type: "GET",
+      url: "https://api.github.com/repos/johnlins/" + name,
+  
+  
+      
+      dataType: "json",
+      success: function(result) {
+          
+              $("#"+id).append(
+                `<p class="sub">` + result.created_at.slice(0, 10) + ` to `+ result.updated_at.slice(0, 10) + ` &#183; <b>` + result.language + `</b> &#183; <a href='` + result.html_url + `' target='_blank'>REPO</a> </p>` 
+              );
+          
+          
+      }
+  });
+  
+  }
+  
+  

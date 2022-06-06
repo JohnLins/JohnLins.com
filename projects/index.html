@@ -1,8 +1,10 @@
 <head>
+<title>Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../style.css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<script src="projects.js"></script>
 </head>
 <body>
     <nav>
@@ -23,6 +25,289 @@
          </nav>
 
 
+
+    <style>
+
+    nav {
+        box-shadow: 0px 0px 15px lightgray;
+    }
+
+    .category {
+        padding: 10px;
+        box-shadow: 0px 0px 15px lightgray;
+        /*display: block;*/
+        margin: 20px;
+        height: auto;
+    }
+    .category h2 {
+        text-align: center;
+    }
+
+
+    .project {
+        box-shadow: 0px 0px 15px lightgray;
+        position: inherit;
+        padding: 10px;
+        margin: 10px;
+        display: block;
+        border-radius: 8px;
+        text-alight: center;
+        justify-content: center;
+
+        /*display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(100px, auto);*/
+
+    }
+
+    #projects {
+        margin-top: 50px;
+
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(10px, auto);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    #c1 {
+        /* width: 56%;
+        clear: left;
+        float: left; */
+
+        grid-column: 1 / 5;
+        grid-row: 1 / 6;
+    }
+
+    #c2 {
+        /* width: 36%;
+        clear: right;
+        float: right; */
+        grid-column: 5 / 10;
+        grid-row: 1 / 5;
+    }
+
+    #c3 {
+        /* width: 40%;
+        clear: left;
+        float: left;*/
+        grid-column: 5 / 10;
+        grid-row: 5 / 10;
+    } 
+
+    #c4 {
+        /* width: 200px;
+        clear: right;
+        float: right; */
+        grid-column: 1 / 5;
+        grid-row: 6 / 17;
+    }
+
+    #c5 {
+        /* width: 200px;
+        clear: right;
+        float: right; */
+        grid-column: 5 / 10;
+        grid-row: 10 / 17;
+    }
+
+    #c6 {
+        grid-column: 1 / 10;
+        grid-row: 17 / 25;
+    }
+
+    #projects img {
+        border-radius: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+    
+    #projects iframe {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-right: 5px;
+        height: 70%;
+        width: 100%;
+
+    }
+
+    #projects .sub {
+        color: gray;
+        margin-top: 5px;
+    }
+
+    /*********************************/
+
+    @media only screen and (max-width: 600px) {
+      
+
+        #projects iframe {
+            margin-right: 0px;
+            margin-top: 5px;
+        }
+
+        .category {
+            box-shadow: none;
+        }
+    }
+
+
+    </style>
+
+<div id="projects">
+    <div class="category" id="c1">
+    <h2>Graphical Simulations <br/> (Math & Physics)</h2>
+    <br/>
+
+        <div class="project">
+        <h3>Euler's Method</h3>
+        <br/>
+        <div id="euler-des"></div>
+        <script>des("EulersMethod", "euler-des");</script>
+        <br/>
+        <img src="https://github.com/JohnLins/EulersMethod/raw/main/assets/demo.png" height="100"/>
+        <img src="https://github.com/JohnLins/EulersMethod/raw/main/assets/demo.gif" height="100" />
+        <img src="https://github.com/JohnLins/EulersMethod/raw/main/assets/equations.png" height="100"/>
+        <br/>
+        <div id="euler-stats"></div>
+        <script>stats("EulersMethod", "euler-stats");</script>
+        </div>
+
+        <div class="project">
+        <h3>Elastic Collision (Conservation of Momentum)</h3>
+        <br/>
+        <div id="elastic-des"></div>
+        <script>des("ElasticCollision", "elastic-des");</script>
+        <br/>
+        <img src="https://github.com/JohnLins/ElasticCollision/raw/main/assets/demo.gif" height="100" />
+        <br/>
+        <div id="elastic-stats"></div>
+        <script>stats("ElasticCollision", "elastic-stats");</script>
+        </div>
+
+
+    </div>
+
+
+        <div class="category" id="c2">
+    <h2>AI Models</h2>
+    <br/>
+
+    <div class="grid">
+        <div class="project">
+            <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
+            <br/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
+
+        </div>
+
+        <div class="project">
+            <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
+            <br/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
+
+        </div>
+
+        <div class="project">
+            <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
+            <br/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
+            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
+
+        </div>
+    </div>
+
+    </div>
+
+    <div class="category" id="c3">
+    <h2>Machine Learning Workshops</h2>
+    <br/>
+    <div class="grid">
+        <div class="project">
+        <h3>Optimizers</h3>
+        <br/>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br/>
+        <div clas="sub"><a href="">VIDEO</a></div>
+        </div>
+
+        <div class="project">
+        <h3>Optimizers</h3>
+        <br/>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br/>
+        </div>
+
+        <div class="project">
+        <h3>Optimizers</h3>
+        <br/>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br/>
+        </div>
+
+        <div class="project">
+        <h3>Optimizers</h3>
+        <br/>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br/>
+        </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="category" id="c4">
+    <h2>Deployed Projects</h2>
+    <br/>
+
+
+    Loyae.com
+
+    </div>
+
+    <div class="category" id="c5">
+    <h2>Private Projects</h2>
+    <br/>
+
+    EllDel
+    </div>
+
+
+    <div class="category" id="c6">
+    <h2>Reference Projects</h2>
+    <br/>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 
          
    <style>
@@ -87,8 +372,8 @@
 </center>
 
 
-<script src="projects.js"></script>
 
+-->
 </body>
 
 
