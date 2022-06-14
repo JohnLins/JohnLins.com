@@ -42,6 +42,7 @@ function stats(name, id){
   
 
 */
+
   function listout(projects, id){
 
 
@@ -60,29 +61,28 @@ function stats(name, id){
           
             
           for(let j = 0; j < projects[i].imgs.length; j++){
-            images = images + `<img src="`+ projects[i].imgs[j] +`" height="100"/>`
+           
+            let height = 100;
+           
+
+            images = images + `<img src="`+ projects[i].imgs[j] + `" height="` + height + `"/>`
+            //height = 100;
           }
 
           $("#"+id).append(`
-          
-          
-          <div class="project">
-          <h3>`+projects[i].title+`</h3>
-          <br/>
-          `+result.description+`
-          <br/>`+
-
-          images
-          
-          +`
-          <p class="sub">` + result.created_at.slice(0, 10) + ` to `+ result.updated_at.slice(0, 10) + ` &#183; <b>` + result.language + `</b> &#183; <a href='` + result.html_url + `' target='_blank'>REPO</a> 
-        `+ ((typeof projects[i].vid !== 'undefined') ? (`</b> &#183; <a href='` + projects[i].vid + `' target='_blank'>VID</a>`) : ``)  +`
-          </p><br/><span>
-          `+
-          ((typeof projects[i].award !== 'undefined') ? (`&#127942; `+projects[i].award) : ``)
-          +`
-          </span>
-          </div>`)
+              <div class="project">
+              <h3>`+projects[i].title+`</h3>
+              <br/>
+              `+result.description+`
+              <br/>`+images+`
+              <p class="sub">` + result.created_at.slice(0, 10) + ` to `+ result.updated_at.slice(0, 10) + ` &#183; <b>` + result.language + `</b> &#183; <a href='` + result.html_url + `' target='_blank'>REPO</a> 
+              `+ ((typeof projects[i].vid !== 'undefined') ? (`</b> &#183; <a href='` + projects[i].vid + `' target='_blank'>VID</a>`) : ``)  +`
+              </p><br/><span>
+              `+
+              ((typeof projects[i].award !== 'undefined') ? (`&#127942; `+projects[i].award) : ``)
+              +`</span>
+              </div>`
+            )
 
         }
     });
