@@ -1,0 +1,149 @@
+nav {
+    box-shadow: 0px 0px 15px lightgray;
+}
+
+.category {
+    padding: 10px;
+    box-shadow: 0px 0px 15px lightgray;
+    /*display: block;*/
+    margin: 20px;
+    height: auto;
+}
+.category h2 {
+    text-align: center;
+}
+
+
+.project {
+    box-shadow: 0px 0px 15px lightgray;
+    position: inherit;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+    border-radius: 8px;
+    text-alight: center;
+    justify-content: center;
+
+    /*display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);*/
+
+}
+
+#projects {
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(10px, auto);
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+#c1 {
+    grid-column: 1 / 5;
+    grid-row: 1 / 6;
+}
+
+#c2 {
+    grid-column: 5 / 10;
+    grid-row: 1 / 5;
+}
+
+#c3 {
+    grid-column: 5 / 10;
+    grid-row: 5 / 10;
+} 
+
+#c4 {
+    grid-column: 1 / 5;
+    grid-row: 6 / 17;
+}
+
+#c5 {
+    grid-column: 5 / 10;
+    grid-row: 10 / 17;
+}
+
+#c6 {
+    grid-column: 1 / 10;
+    grid-row: 17 / 25;
+}
+
+#projects img {
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+#projects iframe {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 5px;
+    height: 70%;
+    width: 100%;
+
+}
+
+#projects .sub {
+    color: gray;
+    margin-top: 5px;
+}
+
+/*********************************/
+
+@media only screen and (max-width: 600px) {
+  
+
+    #projects iframe {
+        margin-right: 0px;
+        margin-top: 5px;
+    }
+
+    .category {
+        box-shadow: none;
+    }
+
+    #c1 {
+        grid-column: 1 / 1;
+        grid-row: 1 / 2;
+    }
+
+    #c2 {
+        grid-column: 1 / 1;
+        grid-row: 2 / 3;
+    }
+
+    #c3 {
+        grid-column: 1 / 1;
+        grid-row: 3 / 4;
+    } 
+
+    #c4 {
+        grid-column: 1 / 1;
+        grid-row: 4 / 5;
+    }
+
+    #c5 {
+        grid-column: 1 / 1;
+        grid-row: 5 / 6;
+    }
+
+    #c6 {
+        grid-column: 1 / 1;
+        grid-row: 6 / 7;
+    }
+}
+

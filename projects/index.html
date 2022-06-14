@@ -26,146 +26,14 @@
 
 
 
-    <style>
-
-    nav {
-        box-shadow: 0px 0px 15px lightgray;
-    }
-
-    .category {
-        padding: 10px;
-        box-shadow: 0px 0px 15px lightgray;
-        /*display: block;*/
-        margin: 20px;
-        height: auto;
-    }
-    .category h2 {
-        text-align: center;
-    }
-
-
-    .project {
-        box-shadow: 0px 0px 15px lightgray;
-        position: inherit;
-        padding: 10px;
-        margin: 10px;
-        display: block;
-        border-radius: 8px;
-        text-alight: center;
-        justify-content: center;
-
-        /*display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        grid-auto-rows: minmax(100px, auto);*/
-
-    }
-
-    #projects {
-        margin-top: 50px;
-
-        display: grid;
-        grid-template-columns: repeat(9, 1fr);
-        gap: 10px;
-        grid-auto-rows: minmax(10px, auto);
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-    }
-
-    #c1 {
-        /* width: 56%;
-        clear: left;
-        float: left; */
-
-        grid-column: 1 / 5;
-        grid-row: 1 / 6;
-    }
-
-    #c2 {
-        /* width: 36%;
-        clear: right;
-        float: right; */
-        grid-column: 5 / 10;
-        grid-row: 1 / 5;
-    }
-
-    #c3 {
-        /* width: 40%;
-        clear: left;
-        float: left;*/
-        grid-column: 5 / 10;
-        grid-row: 5 / 10;
-    } 
-
-    #c4 {
-        /* width: 200px;
-        clear: right;
-        float: right; */
-        grid-column: 1 / 5;
-        grid-row: 6 / 17;
-    }
-
-    #c5 {
-        /* width: 200px;
-        clear: right;
-        float: right; */
-        grid-column: 5 / 10;
-        grid-row: 10 / 17;
-    }
-
-    #c6 {
-        grid-column: 1 / 10;
-        grid-row: 17 / 25;
-    }
-
-    #projects img {
-        border-radius: 5px;
-        margin-right: 5px;
-        margin-top: 5px;
-    }
-    
-    #projects iframe {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        margin-right: 5px;
-        height: 70%;
-        width: 100%;
-
-    }
-
-    #projects .sub {
-        color: gray;
-        margin-top: 5px;
-    }
-
-    /*********************************/
-
-    @media only screen and (max-width: 600px) {
-      
-
-        #projects iframe {
-            margin-right: 0px;
-            margin-top: 5px;
-        }
-
-        .category {
-            box-shadow: none;
-        }
-    }
-
-
-    </style>
+   
 
 <div id="projects">
     <div class="category" id="c1">
     <h2>Graphical Simulations <br/> (Math & Physics)</h2>
     <br/>
 
-        <div class="project">
+        <!--<div class="project">
         <h3>Euler's Method</h3>
         <br/>
         <div id="euler-des"></div>
@@ -189,7 +57,52 @@
         <br/>
         <div id="elastic-stats"></div>
         <script>stats("ElasticCollision", "elastic-stats");</script>
+        </div>-->
+
+        <div id="c1-projects">
+            <script>
+
+                
+                listout([{title: "Euler's Method",
+                        name: "EulersMethod",
+                        imgs: ["https://github.com/JohnLins/EulersMethod/raw/main/assets/demo.png", "https://github.com/JohnLins/EulersMethod/raw/main/assets/demo.gif", "https://github.com/JohnLins/EulersMethod/raw/main/assets/equations.png"]
+                        },
+                        {title: "Elastic Collision (Conservation of Momentum)",
+                        name: "ElasticCollision",
+                        imgs: ["https://github.com/JohnLins/ElasticCollision/raw/main/assets/demo.gif"],
+                        vid: "https://www.youtube.com/watch?v=K1pkZpy_gVs",
+                        award: "Best Solo Hack @ OneHacks"
+                        },
+                        {title: "Force Table",
+                        name: "ForceTable",
+                        imgs: ["https://github.com/JohnLins/ForceTable/raw/master/ft.gif", "https://github.com/JohnLins/ForceTable/raw/master/forcetable.png", "https://github.com/JohnLins/ForceTable/raw/master/fte.png"]
+                        },
+                        {title: "Gradient Descent",
+                        name: "GradientDescent",
+                        imgs: ["https://github.com/JohnLins/GradientDescent/raw/master/assets/gd.gif", "https://github.com/JohnLins/GradientDescent/raw/master/assets/gd2.gif", "https://github.com/JohnLins/GradientDescent/raw/master/assets/gd.png"]
+                        },
+                        {title: "Damping Harmonic Motion",
+                        name: "HarmonicMotion",
+                        imgs: ["https://github.com/JohnLins/HarmonicMotion/raw/master/assets/dhm.gif", "https://github.com/JohnLins/HarmonicMotion/raw/master/assets/harmonicmotion.png", "https://github.com/JohnLins/HarmonicMotion/raw/master/assets/dhme.png"]
+                        },
+                        {title: "Fourier Series",
+                        name: "FourierSeries",
+                        imgs: ["https://github.com/JohnLins/FourierSeries/raw/master/assets/fs2.gif", "https://github.com/JohnLins/FourierSeries/raw/master/assets/fs.gif", "https://github.com/JohnLins/FourierSeries/raw/master/assets/sin.gif"]
+                        },
+                        {title: "Taylor & Higher-Order Derivatives",
+                        name: "TaylorSeries",
+                        imgs: ["https://github.com/JohnLins/TaylorSeries/raw/main/nthDeriv/assets/demo.gif", "https://github.com/JohnLins/TaylorSeries/raw/main/taylor/assets/demo.gif", "https://github.com/JohnLins/TaylorSeries/raw/main/assets/e.png"]
+                        },
+                        {title: "Gravitational Acceleration",
+                        name: "GravitationalAcceleration",
+                        imgs: ["https://simulations.johnlins.com/assets/ga.gif", "https://simulations.johnlins.com/assets/gravity.png"]
+                        }
+
+                        ], "c1-projects")
+            </script>
+
         </div>
+
 
 
     </div>
@@ -199,30 +112,29 @@
     <h2>AI Models</h2>
     <br/>
 
-    <div class="grid">
-        <div class="project">
+    <div class="grid2" id="c2-projects">
+        <!--<div class="project">
             <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
             <br/>
             <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
             <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
 
-        </div>
+        </div>-->
 
-        <div class="project">
-            <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
-            <br/>
-            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
-            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
+          <script>
+        let things = [
+        {title: "Particle EANN (Reinforcement Learning)",
+        name: "ParticleEANN",
+        imgs: ["https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif", "https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif"]
+        }
+        ]
 
-        </div>
+        
+        listout(things, "c2-projects")
+   
+    </script>
 
-        <div class="project">
-            <h3>Particle EANN <br/> (Reinforcement Learning)</h3>
-            <br/>
-            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/pre.gif" height="100"/>
-            <img src="https://github.com/JohnLins/ParticleEANN/raw/master/assets/post.gif" height="100"/>
-
-        </div>
+    
     </div>
 
     </div>
@@ -230,9 +142,9 @@
     <div class="category" id="c3">
     <h2>Machine Learning Workshops</h2>
     <br/>
-    <div class="grid">
-        <div class="project">
-        <h3>Optimizers</h3>
+    <div class="grid2" id="c3-workshops">
+        <!--<div class="project">
+        <h3>AdaGrad GD Optimizer</h3>
         <br/>
         <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         <br/>
@@ -240,25 +152,43 @@
         </div>
 
         <div class="project">
-        <h3>Optimizers</h3>
+        <h3>PMSProp GD Optimizer</h3>
         <br/>
         <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         <br/>
         </div>
 
         <div class="project">
-        <h3>Optimizers</h3>
+        <h3>Momentum GD Optimizer</h3>
         <br/>
         <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         <br/>
-        </div>
+        </div>-->
 
-        <div class="project">
-        <h3>Optimizers</h3>
-        <br/>
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn/embed?start=true&loop=true&delayms=1000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        <br/>
-        </div>
+        <script>
+
+        
+        listoutworkshops([
+        {title: "RMSProp GD Optimizer",
+        code: "2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn",
+        vid: "https://www.youtube.com/watch?v=vwInkakadcg"
+        },
+        {title: "AdaGrad GD Optimizer",
+        code: "2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn",
+        vid: "https://www.youtube.com/watch?v=RXgF14WblVo&t=1s"
+        },
+        {title: "Momentum GD Optimizer",
+        code: "2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn",
+        vid: "https://www.youtube.com/watch?v=WNBu7CWaEDE"
+        },
+        {title: "Neural Networks",
+        code: "2PACX-1vR23z-cJudwd0SBPAWisAwRDrBMO73WrJ5_J47br_n1yDvD5hdkb5bRppUuEJ-xO14bcrCvfSaHenJn",
+        vid: "https://www.youtube.com/watch?v=cdWI5hbtdzg"
+        }
+        ], "c3-workshops")
+        </script>
+
+       
 
         </div>
 
@@ -289,9 +219,94 @@
     <div class="category" id="c6">
     <h2>Reference Projects</h2>
     <br/>
+    <div class="grid3" id="c6-projects">
+    <!--<div class="project">
+            <h3>Recursive Expression Parser</h3>
+            <br/>
+            <div id="parse-des"></div>
+            <script>des("RecursiveParse", "parse-des");</script>
+            <br/>
+            <img src="https://github.com/JohnLins/RecursiveParse/raw/master/assets/demo.png" height="100"/>
+            <div id="parse-stats"></div>
+            <script>stats("RecursiveParse", "parse-stats");</script>
+            </div>
+        </div>-->
 
 
+    <script>
+        
+        listout([
+        {title: "Recursive Expression Parser",
+        name: "RecursiveParse",
+        imgs: ["https://github.com/JohnLins/RecursiveParse/raw/master/assets/demo.png"]
+        },
+        {title: "Ray Pix Drawing Tool",
+        name: "RayPix",
+        imgs: ["https://github.com/JohnLins/RayPix/raw/main/image.png", "https://github.com/JohnLins/RayPix/raw/main/raypix.png"]
+        },
+        {title: "Block Bump Game",
+        name: "BlockBump",
+        imgs: ["https://github.com/JohnLins/BlockBump/raw/master/video.gif"]
+        },
+        {title: "Astra",
+        name: "Astra",
+        imgs: ["https://github.com/JohnLins/Astra/raw/master/screenshots/gallery.jpg", "https://github.com/JohnLins/Astra/raw/master/screenshots/a.png", "https://github.com/JohnLins/Astra/raw/master/screenshots/b.png", "https://github.com/JohnLins/Astra/raw/master/screenshots/c.png"],
+        award: "Global Nominee @ NASA Space Apps Challenge"
+        },
+        {title: "Memory Management Repo",
+        name: "MemoryManagement",
+        imgs: []
+        },
+        {title: "Golang Fun",
+        name: "GolangFun",
+        imgs: []
+        },
+        {title: "Mini Projects",
+        name: "MiniProjects",
+        imgs: []
+        },
+        {title: "Vector Arithmetic Library",
+        name: "VectorArithmetic",
+        imgs: []
+        },
+        {title: "Quantum Computing Fun",
+        name: "QuantumFun",
+        imgs: ["https://github.com/JohnLins/QuantumFun/raw/main/CCX(Toffoli)/circuit-khihpdxh.png", "https://github.com/JohnLins/QuantumFun/raw/main/CSWAP/circuit-khmqfmvs.png", "https://github.com/JohnLins/QuantumFun/raw/main/CX/circuit-khmt1km6.png"]
+        },
+        {title: "Functional Fun",
+        name: "FunctionalFun",
+        imgs: []
+        },
+        {title: "Object Oriented Algorithms",
+        name: "Algorithms",
+        imgs: []
+        },
+        {title: "APCSA Work",
+        name: "APCSA",
+        imgs: []
+        },
+        {title: "Object Oriented Statistics Library",
+        name: "OOPStats",
+        imgs: []
+        },
+        {title: "Textify",
+        name: "Textify",
+        imgs: ["https://github.com/JohnLins/Textify/raw/master/screenshot1.png", "https://github.com/JohnLins/Textify/raw/master/screenshot2.png"]
+        },
+        {title: "NutriStatus",
+        name: "NutriStatusAI",
+        imgs: ["https://github.com/JohnLins/NutriStatusAI/raw/main/screenshot.png"]
+        },
+        {title: "Fallen AI",
+        name: "FallenAI",
+        imgs: ["https://github.com/JohnLins/FallenAI/raw/main/screenshot.png", "https://github.com/JohnLins/FallenAI/raw/main/demo.gif"]
+        }
+        ], "c6-projects")
+   
+    </script>
 
+
+</div>
     </div>
 </div>
 

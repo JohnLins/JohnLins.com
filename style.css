@@ -1,11 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Cormorant+Upright:wght@300&family=Cormorant:wght@300&family=Gentium+Basic:ital@1&family=Libre+Baskerville&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Cormorant+Upright:wght@300&family=Cormorant:wght@300&family=Gentium+Basic:ital@1&family=Libre+Baskerville&display=swap');
+*/
 
+@import url('https://fonts.googleapis.com/css2?family=Bentham&display=swap');
+
+@font-face {
+    font-family: "Computer Modern Fancy";
+    src: url('assets/cm/cmunti.ttf');
+  }
+
+  @font-face {
+    font-family: "Computer Modern";
+    src: url('assets/cm/cmunrm.ttf');
+  }
 
 * {
     margin: 0;
     padding: 0;
 
-    font-family: 'Gentium Basic', serif;
+    font-family: "Computer Modern Fancy";
     color: var(--text-color);
     /*font-family: 'Gentium Basic', serif;*/
 }
