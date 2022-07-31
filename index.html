@@ -134,12 +134,14 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
         <br/>
         <h1 id="about">About Me</h1>
         
-        <p style="font-size: 1.2em">My name is John Lins, I'm a developer and student in the Bay Area, CA. I build <a href="http://simulations.johnlins.com">math/physics/ML simulations</a> among <a href="projects/index.html">other things</a>. 
+        <p style="font-size: 1.2em">My name is John Lins, I'm a developer and student from the Bay Area, CA. I currently attend <a href="https://www.ece.ucsb.edu/">UCSB</a> as a computer engineering (CpE) major ω/ a mathematics minor!  
+        <br/>
+        I build <a href="http://simulations.johnlins.com">math/physics/ML simulations</a> among <a href="projects/index.html">other things</a>, but I aspire to involve myself in seq-2-seq transformer projects/research in the future. 
         <!--Professionally I run and maintain <a href="http://linsintegrations.co">LinsIntegrations.co<a>, connecting content creators with lucrative video integration cooperations. -->
        <br/>
-        I'm quite active in the CS/ML field... I'm the president of my school's <a href="http://hackclub.org">Hack Club</a>, additionally I'm the founder and lead organizer @ <a href="http://sigmoidhacks.org">Sigmoid Hacks<a>. 
+        I'm quite active in the CS/ML field... I'm the past president of my school's <a href="http://hackclub.org">Hack Club</a>, additionally I'm the lead organizer @ <a href="http://sigmoidhacks.org">Sigmoid Hacks<a>. 
         <br/>
-       My "focus" project is <a href="http://loyae.com">Loyae.com</a>, which unleashes the power of natural language processing (NLP) and machine learning for website optimization.       
+       My "focus" project is <a href="http://loyae.com">Loyae.com</a>, which aims to unleash the power of natural language processing (NLP) and machine learning for website optimization.       
         <br/>
         </p>
        
@@ -147,52 +149,21 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
         <br />
       
         <h1 id="contact" style="text-align: center;">Contact</h1>
-       <!-- <p>Feel free to reach out! I'm always available! Below are my socials & email: <p>
         <br/>
         <div id="socials">
-            <a href="https://github.com/JohnLins" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab fa-github">
-                </i>
-            </a>
-            <a href="https://angel.co/u/johnlins" target="_blank" class="link color-white f-18 mr-20">
+            <a href="https://github.com/JohnLins">Github</a> &#xb7;
+            <a href="https://www.linkedin.com/in/johnplins">Linkedin</a> &#xb7;
+            <a href="https://news.ycombinator.com/favorites?id=JohnLins">HackerNews</a> &#xb7;
+            <a href="https://www.youtube.com/channel/UCibIMxQWtbklyoN0-P9e0Fw">YouTube</a> &#xb7;
+            <a href="http://devpost.com/johnlins">Devpost</a> &#xb7;
+            <a href="https://scrapbook.hackclub.com/JohnLins">HackClub</a>
+<!--<a href="https://angel.co/u/johnlins" >
                 <i class="fab fa-angellist">
                 </i>
-            </a>
-            <a href="https://www.linkedin.com/in/johnplins" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab fa-linkedin">
-                </i>
-            </a>
-            <a href="https://news.ycombinator.com/favorites?id=JohnLins" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab fa-hacker-news-square"></i>
-            </a>
-            <a href="https://discord.com/users/503393390327758848" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab fa-discord">
-                </i>
-            </a> 
-        <a href="https://www.youtube.com/channel/UCibIMxQWtbklyoN0-P9e0Fw" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab fa-youtube">
-                </i>
-            </a>
-
-            
-            
-
-            <a href="http://devpost.com/johnlins" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab"><img style="height: 20px; margin: 0; padding: 0;" src="assets/devpost.png"/></i>
-            </a>
-            <br/>
-
-            <a href="https://scrapbook.hackclub.com/JohnLins" target="_blank" class="link color-white f-18 mr-20">
-                <i class="fab"><img height="30px" src="assets/hackclub.png"/></i>
-            </a>
-
-            
-           -->
-
-            
-            
+            </a>-->
         </div>
-        <p>hello@johnlins.com</p>
+    <br/>
+        <p>email: hello[AT]johnlins.com</p>
 
 
 
@@ -255,8 +226,49 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
 
 
         
-        <br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br />
 <h1 style="text-align: center;">Webrings</h1>
+
+
+<div id="friends">
+Friends ⭆
+
+</div>
+<style>
+#friends {
+    border: 1px black solid;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    overflow: auto;
+}
+#friends a {
+    color: #0000EE;
+    text-decoration: none;
+    margin: 5px;
+}
+#friends a:hover {
+    cursor: pointer;
+    color: red;
+}
+</style>
+<script>
+function addfriends(fs){
+ var insert = document.getElementById("friends");
+
+    for(let i = 0; i < fs.length; i++){
+
+      insert.innerHTML += `<a href="https://`+fs[i]+`">@`+fs[i]+`</a> ` 
+
+    }
+}
+
+addfriends(["johnlins.com", "johnlins.com", "johnlins.com", "johnlins.com", "johnlins.com"])
+</script>
+
+
+<br/>
 
 <div id="webrings">
 <div id="webring-wrapper">
@@ -352,6 +364,7 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
 </div>
 
 
+<br/>
         <footer>
             <p>© John Lins <span id="year"></span>
                 <footer>

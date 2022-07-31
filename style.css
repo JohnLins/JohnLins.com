@@ -46,7 +46,13 @@ body {
 
 #socials a {
     text-decoration: none;
-    font-size: 22px;
+    color: #0000EE;
+    font-size: 15px;
+}
+
+#socials a:hover {
+    cursor: pointer;
+    color: red;
 }
 
 
