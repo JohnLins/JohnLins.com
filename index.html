@@ -254,8 +254,7 @@ Friends ⭆
 }
 </style>
 <script>
-function addfriends(yoursite){
-
+function addfriends(){
 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -264,7 +263,8 @@ var xhttp = new XMLHttpRequest();
         var insert = document.getElementById("friends");
 
     for(let i = 0; i < fs.members.length; i++){
-        if(fs.members[i] != yoursite){
+   
+        if(fs.members[i] != window.location.hostname.split(".").slice(-2).join(".")){
             insert.innerHTML += `<a href="https://`+fs.members[i]+`">@`+fs.members[i]+`</a> `; 
         }
 
@@ -277,7 +277,7 @@ var xhttp = new XMLHttpRequest();
 
 }
 
-addfriends("johnlins.com")
+addfriends()
 
 </script>
 
