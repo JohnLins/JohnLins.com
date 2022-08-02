@@ -254,30 +254,47 @@ Friends ⭆
 }
 </style>
 <script>
-function addfriends(){
-var xhttp = new XMLHttpRequest();
+
+//var insert = document.getElementById("friends");
+fetch("./webring.json")
+.then(data => data.json())
+    .then(({ members }) => {
+        for (const member of members) {
+            friends.innerHTML += `<a href='https://${member}'>@${member}</a> ▸`
+        }
+
+
+/*var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 
-        var fs = JSON.parse(this.responseText);
-        var insert = document.getElementById("friends");
+        */
+       /* var insert = document.getElementById("friends");
 
-    for(let i = 0; i < fs.members.length; i++){
+    for(let i = 0; i < fs.friends.length; i++){
    
-        if(fs.members[i] != window.location.hostname.split(".").slice(-2).join(".")){
-            insert.innerHTML += `<a href="https://`+fs.members[i]+`">@`+fs.members[i]+`</a> `; 
+        //if(fs.members[i] != window.location.hostname.split(".").slice(-2).join(".")){
+            insert.innerHTML += `<a href="https://`+fs.friends[i]+`">@`+fs.friends[i]+`</a> ▸`; 
+        //}
+
+    }*/
+
+//    }
+  /*};
+  xhttp.open("GET", "./webring.json");
+  xhttp.send();*/
+
+/*
+
+var insert = document.getElementById("friends");
+fetch('./webring.json')
+    .then(data => data.json())
+    .then(({ members }) => {
+        
+        for (const friend of members) {
+            insert.innerHTML += `<a href="https://`+friend+`">@`+friend+`</a> ▸`;
         }
-
-    }
-
-    }
-  };
-  xhttp.open("GET", "https://raw.githubusercontent.com/JohnLins/Friends/main/friends.json");
-  xhttp.send();
-
-}
-
-addfriends()
+    })*/
 
 </script>
 
