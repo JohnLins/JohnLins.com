@@ -256,13 +256,16 @@ Friends ⭆
 <script>
 
 //var insert = document.getElementById("friends");
-fetch("./webring.json")
-.then(data => data.json())
-    .then(({ members }) => {
-        for (const member of members) {
-            friends.innerHTML += `<a href='https://${member}'>@${member}</a> ▸`
-        }
+const webring = document.querySelector('#friends')
 
+            fetch('./webring.json')
+                .then(data => data.json())
+                .then(json => {
+                    for (const member of json.friends) {
+                        
+                        webring.innerHTML += `<a class="main__github" href="https://${member}">${member}</a>`
+                    }
+                })
 
 /*var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
