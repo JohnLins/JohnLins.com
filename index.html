@@ -265,7 +265,7 @@ const webring = document.querySelector('#friends')
 function friendfriend(name){
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
     //window.alert('https://'+name+'/webring.json')
-    fetch('http://'+name+'/webring.json')
+    fetch(`https://kens-friends.vercel.app/webrings?urls=`+encodeURIComponent(JSON.stringify([name]))/*'http://'+name+'/webring.json'*/)
         .then(datay => data.json())
         .then(jsony => {
         webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json.name+`'s Friends ⭆ `; //clear
