@@ -269,7 +269,7 @@ function friendfriend(name){
         .then(json => {
         webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json.name+`'s Friends ⭆ `; //clear
 
-            for (const membery of jsony.friends) {
+            for (const member of json.friends) {
                 webring.innerHTML += `<a href="https://${member}">@${member}</a>`
             }
 
