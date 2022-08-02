@@ -279,7 +279,7 @@ webring.innerHTML = "Friends ⭆ "
         .then(json => {
 
             for (const member of json.friends) {
-                webring.innerHTML += `<a href="https://${member}">@${member}</a> <a href="javascript:friendfriend("`+ member +`")">&#9656;</a>`
+                webring.innerHTML += `<a href="https://${member}">@${member}</a> <a href="javascript:friendfriend(\``+ member +`\`)">&#9656;</a>`
             }
 
     })
