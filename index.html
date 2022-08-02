@@ -230,12 +230,11 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
 <h1 style="text-align: center;">Webrings</h1>
 
 
-<div id="friends">
-Friends ⭆
-
+<div class="friends">
 </div>
+
 <style>
-#friends {
+.friends {
     border: 1px black solid;
     width: 50vw;
     height: auto;
@@ -243,29 +242,50 @@ Friends ⭆
     margin: 10px;
     overflow: auto;
 }
-#friends a {
+.friends a {
     color: #0000EE;
     text-decoration: none;
     margin: 5px;
 }
-#friends a:hover {
+.friends a:hover {
     cursor: pointer;
     color: red;
 }
 </style>
 <script>
 
-//var insert = document.getElementById("friends");
-const webring = document.querySelector('#friends')
 
-            fetch('./webring.json')
-                .then(data => data.json())
-                .then(json => {
-                    for (const member of json.friends) {
-                        
-                        webring.innerHTML += `<a class="main__github" href="https://${member}">${member}</a>`
-                    }
-                })
+
+//var insert = document.getElementById("friends");
+const webring = document.querySelector('.friends')
+
+function friendfriend(name){
+    webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
+    fetch(`https://`+name+`webring.json`)
+        .then(data => data.json())
+        .then(json => {
+
+            for (const member of json.friends) {
+                webring.innerHTML += `<a href="https://${member}">@${member}</a>`
+            }
+
+    })
+}
+
+function friendsroot(){
+webring.innerHTML = "Friends ⭆ "
+    fetch('./webring.json')
+        .then(data => data.json())
+        .then(json => {
+
+            for (const member of json.friends) {
+                webring.innerHTML += `<a href="https://${member}">@${member}</a> <a href="javascript:friendfriend(`+ member +`)">&#9656;</a>`
+            }
+
+    })
+}
+
+friendsroot();
 
 /*var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
