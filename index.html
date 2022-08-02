@@ -264,12 +264,11 @@ const webring = document.querySelector('#friends')
 
 function friendfriend(name){
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
-    //window.alert('https://'+name+'/webring.json')
     fetch(`https://kens-friends.vercel.app/webrings?urls=${encodeURIComponent(JSON.stringify([name]))}`/*'http://'+name+'/webring.json'*/)
         .then(data => data.json())
         .then(json => {
         webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json.name+`'s Friends ⭆ `; //clear
-        //window.alert(jsony.friends[0]);
+
             for (const membery of jsony.friends) {
                 webring.innerHTML += `<a href="https://${member}">@${member}</a>`
             }
