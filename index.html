@@ -252,9 +252,11 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
     color: red;
 }
 
-.friendarrow {
+#friends .friendarrow {
     color: black;
+    text-decoration: none;
 }
+
 </style>
 <script>
 
@@ -262,6 +264,7 @@ const webring = document.querySelector('#friends')
 
 function friendfriend(name){
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
+    window.alert('https://'+name+'/webring.json')
     fetch('https://'+name+'/webring.json')
         .then(data => data.json())
         .then(json => {
