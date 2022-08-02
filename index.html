@@ -230,11 +230,11 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
 <h1 style="text-align: center;">Webrings</h1>
 
 
-<div class="friends">
+<div id="friends">
 </div>
 
 <style>
-.friends {
+#friends {
     border: 1px black solid;
     width: 50vw;
     height: auto;
@@ -242,22 +242,23 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
     margin: 10px;
     overflow: auto;
 }
-.friends a {
+#friends a {
     color: #0000EE;
     text-decoration: none;
     margin: 5px;
 }
-.friends a:hover {
+#friends a:hover {
     cursor: pointer;
     color: red;
+}
+
+.friendarrow {
+    color: black;
 }
 </style>
 <script>
 
-
-
-//var insert = document.getElementById("friends");
-const webring = document.querySelector('.friends')
+const webring = document.querySelector('#friends')
 
 function friendfriend(name){
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
@@ -280,45 +281,13 @@ webring.innerHTML = "Friends ⭆ "
         .then(json => {
 
             for (const member of json.friends) {
-                webring.innerHTML += `<a href="https://${member}">@${member}</a> <a href="javascript:friendfriend(\``+ member +`\`)">&#9656;</a>`
+                webring.innerHTML += `<a href="https://${member}">@${member}</a> <a href="javascript:friendfriend(\``+ member +`\`)" class="friendarrow">&#9656;</a>`
             }
 
     })
 }
 
 friendsroot();
-
-/*var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-
-        */
-       /* var insert = document.getElementById("friends");
-
-    for(let i = 0; i < fs.friends.length; i++){
-   
-        //if(fs.members[i] != window.location.hostname.split(".").slice(-2).join(".")){
-            insert.innerHTML += `<a href="https://`+fs.friends[i]+`">@`+fs.friends[i]+`</a> ▸`; 
-        //}
-
-    }*/
-
-//    }
-  /*};
-  xhttp.open("GET", "./webring.json");
-  xhttp.send();*/
-
-/*
-
-var insert = document.getElementById("friends");
-fetch('./webring.json')
-    .then(data => data.json())
-    .then(({ members }) => {
-        
-        for (const friend of members) {
-            insert.innerHTML += `<a href="https://`+friend+`">@`+friend+`</a> ▸`;
-        }
-    })*/
 
 </script>
 
