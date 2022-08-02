@@ -260,8 +260,8 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA. 
 const webring = document.querySelector('.friends')
 
 function friendfriend(name){
-    
-    fetch(`https://`+name+`/webring.json`)
+    webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
+    fetch('https://'+name+'/webring.json')
         .then(data => data.json())
         .then(json => {
         webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json.name+`'s Friends ⭆ `; //clear
