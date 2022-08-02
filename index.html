@@ -266,12 +266,12 @@ function friendfriend(name){
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; //clear
     window.alert('https://'+name+'/webring.json')
     fetch('https://'+name+'/webring.json')
-        .then(data => data.json())
-        .then(json => {
+        .then(datay => data.json())
+        .then(jsony => {
         webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json.name+`'s Friends ⭆ `; //clear
-
-            for (const member of json.friends) {
-                webring.innerHTML += `<a href="https://${member}">@${member}</a>`
+        window.alert(jsony.friends[0]);
+            for (const membery of jsony.friends) {
+                webring.innerHTML += `<a href="https://${membery}">@${membery}</a>`
             }
 
     })
