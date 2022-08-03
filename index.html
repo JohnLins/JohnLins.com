@@ -267,7 +267,6 @@ function friendfriend(name){
      fetch(`https://kens-friends.vercel.app/webrings?urls=${encodeURIComponent(JSON.stringify([name]))}`/*'http://'+name+'/webring.json'*/)
         
         .then((data) => {
-   if (data.ok) { 
    var json = data.json();
     webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json[0].name+`'s Friends ⭆ `; 
 
@@ -275,11 +274,12 @@ function friendfriend(name){
             webring.innerHTML += `<div><a href="https://${member}">@${member}</a><a href="javascript:friendfriend(\``+ member +`\`)" class="friendarrow">&#9656;</a></div>`
                     
         }
-   } else {
-        webring.innerHTML += `<span color="red">N/A</span>`;
-   }
-   
- })
+
+    })
+    .catch(error => {
+         webring.innerHTML += `<span color="red">N/A</span>`;
+         console.log(error);
+    })
 
 
 
