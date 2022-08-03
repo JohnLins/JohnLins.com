@@ -263,27 +263,25 @@ content="My name is John Lins, I'm a developer and student in the Bay Area, CA."
 const webring = document.querySelector('#friends')
 
 function friendfriend(name){
-    webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; 
+    //webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+name+`'s Friends ⭆ `; 
      fetch(`https://kens-friends.vercel.app/webrings?urls=${encodeURIComponent(JSON.stringify([name]))}`/*'http://'+name+'/webring.json'*/)
         
-        .then(data => {
-            if(!data.ok){throw new Error(data.statusText)};
-            return data.json()
-        })
+        .then(data => data.json())
         .then(json => {
         
-        webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json[0].name+`'s Friends ⭆ `; 
+        webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json[0].name ?? name +`'s Friends ⭆ `; 
 
         for (const member of json[0].friends) {
             webring.innerHTML += `<div><a href="https://${member}">@${member}</a><a href="javascript:friendfriend(\``+ member +`\`)" class="friendarrow">&#9656;</a></div>`
                     
         }
 
+        if(json[0].name == null){
+             webring.innerHTML += `<span color="red">N/A</span>`;
+        }
+
     })
-    .catch(error => {
-         webring.innerHTML += `<span color="red">N/A</span>`;
-         console.log(error);
-    })
+    
 
 
 
