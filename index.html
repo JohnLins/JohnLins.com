@@ -269,7 +269,7 @@ function friendfriend(name){
         .then(data => data.json())
         .then(json => {
         
-        webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+json[0].name ? json[0].name : name +`'s Friends ⭆ `; 
+        webring.innerHTML = `<a href="javascript:friendsroot()">&#9666;</a> `+(json[0].name != null) ? json[0].name : name +`'s Friends ⭆ `; 
 
         for (const member of json[0].friends) {
             webring.innerHTML += `<div><a href="https://${member}">@${member}</a><a href="javascript:friendfriend(\``+ member +`\`)" class="friendarrow">&#9656;</a></div>`
@@ -277,7 +277,7 @@ function friendfriend(name){
         }
 
         if(json[0].name == null){
-             webring.innerHTML += `<span color="red">N/A</span>`;
+             webring.innerHTML += ` <span style="color:red">N/A</span>`;
         }
 
     })
