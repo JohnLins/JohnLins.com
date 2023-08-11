@@ -1,23 +1,18 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Cormorant+Upright:wght@300&family=Cormorant:wght@300&family=Gentium+Basic:ital@1&family=Libre+Baskerville&display=swap');
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Bentham&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Bentham&display=swap');*/
 
-@font-face {
-    font-family: "Computer Modern Fancy";
-    src: url('assets/cm/cmunti.ttf');
-  }
 
-  @font-face {
-    font-family: "Computer Modern";
-    src: url('assets/cm/cmunrm.ttf');
-  }
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
 
-    font-family: "Computer Modern Fancy";
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
     color: var(--text-color);
     /*font-family: 'Gentium Basic', serif;*/
 }
@@ -40,14 +35,17 @@ body {
 
 #parent {
     display: grid;
-    place-items: center;
     margin: 50px 20% 0px 20%;
 }
 
 #socials a {
     text-decoration: none;
     color: #0000EE;
-    font-size: 15px;
+}
+
+#socials {
+    font-size: .9em;
+
 }
 
 #socials a:hover {
@@ -71,7 +69,6 @@ h1 {
 nav {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     height: 66px;
     width: 100%;
     top: 0;
@@ -110,7 +107,6 @@ nav {
 
 .project h3 span {
     font-size:.7em;
-    font-weight: 100;
 }
 
 .btn {
@@ -138,8 +134,4 @@ nav {
         display: hidden;
     }
 
-}
-
-#webrings a{
-    text-decoration: none;
 }
