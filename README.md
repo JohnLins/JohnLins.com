@@ -1,3 +1,3 @@
 # johnlins.github.io
 
-https://webring.hackclub.com/
+https:/johnlins.com
