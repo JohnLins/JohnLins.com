@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Text Humanization</title>
+
+    <!-- MathJax for LaTeX equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.75;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 70px 30px 100px;
+        }
+
+        h1 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 27px;
+            line-height: 1.3;
+            margin-top: 65px;
+            margin-bottom: 22px;
+            font-weight: 650;
+        }
+
+        h3 {
+            font-size: 21px;
+            line-height: 1.4;
+            margin-top: 45px;
+            margin-bottom: 18px;
+            font-weight: 650;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 0 0 22px;
+        }
+
+        .abstract-label {
+            font-weight: 700;
+        }
+
+        .equation {
+            margin: 35px 0;
+            padding: 15px 10px;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .figure {
+            margin: 35px 0 40px;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .callout {
+            margin: 30px 0;
+            padding: 20px 24px;
+            border-left: 4px solid #222;
+            background: #f7f7f7;
+        }
+
+        .samples {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .sample {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .sample-title {
+            font-weight: 650;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px 70px;
+            }
+
+            h1 {
+                font-size: 31px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Exploiting The AI Detection Decision Boundary</h1>
+    <br/>
+    <p>by <a href="https://johnlins.com">John Lins</a></p>
+
+    <p>
+        <span class="abstract-label">Abstract — This is an informal post detailing the experiments I conducted that resulted in successfully bypassing AI detection. I developed an AI humanizer based on the objectives defined in this article. My first two experiments failed, but my third attempt was successfully able to bypass Pangram 4.0 reliably. The model that worked will not be disclosed in this paper; however, I have detailed below the other model architectures I attempted, as well as a promising approach I have not tested yet.</span>
+    </p>
+
+    <h2>Background</h2>
+
+    <p>
+        Traditional AI detectors measured perplexity and other trivially-defined
+        features of AI-generated text.
+    </p>
+
+    <p>
+        Adversaries have then built humanizers that vary sentence length,
+        temperature, inject appreciations, etc. This approach once worked
+        against these simple detectors, but fails against modern detectors.
+        Modern detectors use multi-layer classification to linearly separate
+        the statistical features of AI text from human text. These detectors
+        are especially difficult to beat when trained on humanized samples.
+    </p>
+
+    <p>
+        AI-generated text has a statistical signature due to their
+        autoregressive nature. This signature is both local and global in
+        the text. Below is a dimensionality-reduced visualization showing
+        how text may be represented in the final layers of a detection
+        classifier.
+    </p>
+
+    <div class="figure">
+        <img src="bound.png"
+             alt="Dimensionality-reduced visualization of AI and human text">
+        <div class="caption">
+            Figure 1. A dimensionality-reduced visualization of text
+            representations in the final layers of a detection classifier.
+        </div>
+    </div>
+
+    <p>
+        The goal of a humanizer is to successfully perturb a sample such
+        that it travels across the decision boundary while also maintaining
+        meaning and lexical plausibility. That is a very difficult
+        constrained optimization program. However, I successfully was able
+        to achieve this to a moderate degree after attempting three
+        different approaches.
+    </p>
+
+        <div class="figure">
+        <img src="boundary_exploit.png"
+             alt="Dimensionality-reduced visualization of AI and human text getting exploited">
+        <div class="caption">
+            Figure 2. Exploiting the decision boundary by moving in the direction of steepest semantic similarity toward the AI-text centroid.
+        </div>
+    </div>
+
+    <h2>The Objective of a Humanizer</h2>
+
+    <p>
+        The goal is to make a humanizer that can exploit the decision
+        boundary. I once took a class at UCSB called ECE 194BB where we
+        learned how to perform adversarial attacks on both black-box and
+        white-box classifiers. The most common solutions involved perturbing
+        the input along a gradient until the decision boundary is breached.
+        However, that was for images; perturbing text is significantly harder.
+    </p>
+
+
+    <h2>Solution Attempts</h2>
+
+    <h3>Solution Attempt 1: "Human" Next-Token Distribution</h3>
+
+    <p>
+        My first attempted humanization solution was to learn a "human"
+        token distribution. My idea was to be fed a large corpus of text
+        all written by the same human author. Then, based on the frequencies
+        of each word, I could build a distribution.
+    </p>
+
+    <p>
+        Then I modified the final softmax layer of the model to first return
+        the top 40 tokens, but instead of selecting the most probable, it
+        fed all those tokens equally into this "human" distribution and then
+        selected the most probable word from that distribution instead.
+    </p>
+
+    <div class="equation">
+        \[
+        P_H(w)=\frac{c_H(w)}{\sum_{v}c_H(v)}
+        \]
+    </div>
+
+    <div class="equation">
+        \[
+        w^*=
+        \underset{
+            w\in\operatorname{Top}_{40}(P_M(\cdot\mid x))
+        }{\arg\max}
+        \;P_H(w)
+        \]
+    </div>
+
+    <p>
+        This technique was successfully able to bypass traditional detectors
+        like GPTZero. However, advanced detectors like Pangram were still
+        able to detect 100% AI.
+    </p>
+
+    <p>
+        This is because the statistical signature of AI-generated text is not
+        only local, but also global. Since the human distribution was still
+        constrained to pick the top 40 tokens that the LLM was already
+        selecting, the global trajectory of the passage still looked like AI
+        to the classifier.
+    </p>
+
+
+    <h3>Solution Attempt 2: Detector-Guided Diffusion</h3>
+
+    <p>
+        My original instinct was to perform guided generation where you use
+        an AI detector to guide the generation process. At first, I thought
+        I could do this with a traditional LLM, but then I realized that it
+        would face a similar pitfall as the previous solution attempt.
+    </p>
+
+    <p>
+        The issue is that it would be able to optimize the next token to
+        reduce the probability of being detected by AI. However, all the
+        previous tokens are fixed, so you can only guide locally, but not
+        globally.
+    </p>
+
+    <p>
+        In order to guide globally, I realized that I could use a diffusion
+        LLM instead of a traditional autoregressive LLM. I've previously
+        published research in the field of diffusion modeling, so this was
+        a familiar approach.
+    </p>
+
+    <p>
+        I used an open source diffusion model, where at each diffusion step,
+        it queries the detector to determine which draft was the most human,
+        and then nudges the logits toward that draft.
+    </p>
+
+    <p>
+        This failed because the unfinished drafts of diffusion models are
+        essentially just noise, so the detector was classifying them all as
+        human. Consequently, no meaningful guidance was possible.
+    </p>
+
+
+    <h2>Direction from Attempt 2 That I Hypothesize Would Work</h2>
+
+    <p>
+        While the guided diffusion attempt I mentioned above did not work,
+        I realized that I could possibly make it work by including the
+        gradient information of the detector and starting with the AI text
+        (treating it as the initial noise state).
+    </p>
+
+    <p>
+        Then you have the diffusion model perturb the text globally based
+        on this optimization formulation:
+    </p>
+
+    <div class="equation">
+        \[
+        x^*
+        =
+        \arg\min_x
+        \left[
+        L_{\text{meaning}}(x,x_{\mathrm{AI}})
+        +
+        \lambda D(x)
+        \right].
+        \]
+    </div>
+
+    <p>
+        Here, the second term represents the detector's score
+        \(D(x) \in [0,1]\), whose gradient direction guides the text away from AI detection.
+    </p>
+
+    <p>
+        This dual objective function will have each term fight with each
+        other until the output contains text that maintains the same
+        semantic meaning as the original AI text but bypasses the AI
+        detector.
+    </p>
+
+    <p>
+        In order for this to bypass advanced detectors, I would first need
+        to train a detector that is powerful enough that it could act as
+        a surrogate model to mainstream detectors. This way it could be
+        generalized. Disclaimer: I assume transferability here.
+    </p>
+
+
+    <h2>Solution Attempt 3: The One That Actually Worked</h2>
+
+    <p>
+        So, I am not going to disclose the exact methodology here. However, I made a video of it in action:
+    </p>
+
+    <div class="samples">
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/AFYxY-egQWw?si=KExQzGcXxMor6lRH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    </div>
+
+</div>
+
+</body>
+</html>
